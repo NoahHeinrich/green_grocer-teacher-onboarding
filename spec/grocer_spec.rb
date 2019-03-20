@@ -236,8 +236,7 @@ describe "Grocer" do
         consolidated = consolidate_cart(cart)
         coupons_applied = apply_coupons(consolidated, coupons)
         clearance_applied = apply_clearance(coupons_applied)
-        puts "Test":
-        puts consolidated
+        
         expect(self).to receive(:consolidate_cart).with(cart).and_return(consolidated)
         expect(self).to receive(:apply_coupons).with(consolidated, coupons).and_return(coupons_applied)
         expect(self).to receive(:apply_clearance).with(coupons_applied).and_return(clearance_applied)
