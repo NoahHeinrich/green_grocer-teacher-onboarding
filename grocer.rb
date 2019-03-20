@@ -52,7 +52,7 @@ def checkout(cart, coupons)
   total = 0
   final_cart.each_value do |item|
     
-    total += item[:price]
+    total += item[:price] if item[:count] > 0
   end
   total
 end
