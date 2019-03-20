@@ -46,12 +46,9 @@ def checkout(cart, coupons)
   final_cart = consolidate_cart(cart)
   
   final_cart = apply_coupons(final_cart,coupons)
-  puts "Code:"
-  puts final_cart
   final_cart = apply_clearance(final_cart)
   total = 0
   final_cart.each_value do |item|
-    
     total += item[:price] if item[:count] > 0
   end
   total
