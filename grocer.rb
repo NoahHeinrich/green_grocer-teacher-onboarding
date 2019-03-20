@@ -21,6 +21,7 @@ def apply_coupons(cart, coupons)
     cart[coupon_name] = Hash.new
     cart[coupon_name][:price] = coupon[:cost]
     cart[coupon_name][:count] = 0
+    cart[coupon_name][:clearance] = cart[item_name][:clearance]
     while cart[item_name][:count] >= coupon[:num]
       cart[item_name][:count] -= coupon[:num]
       cart[coupon_name][:count] += 1
