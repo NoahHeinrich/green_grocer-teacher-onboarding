@@ -19,7 +19,7 @@ def apply_coupons(cart, coupons)
     item_name = coupon[:item]
     if cart[item_name]
       coupon_name = item_name + " W/COUPON"
-      cart[coupon_name] = Hash.new
+      cart[coupon_name] = Hash.new unless cart[coupon_name]
       cart[coupon_name][:price] = coupon[:cost]
       cart[coupon_name][:count] = 0
       cart[coupon_name][:clearance] = cart[item_name][:clearance]
