@@ -15,8 +15,12 @@ end
 
 
 def apply_coupons(cart, coupons)
-  item_name = coupons[0][:item]
-  coupon_name = item_name + " W/COUPON"
+  coupons.each do |coupon|
+    item_name = coupon[:item]
+    coupon_name = item_name + " W/COUPON"
+    cart[coupon_name][:price] = coupon[:cost]
+    cart[coupon_name][:count] = coupon[:num]
+  end
   
 end
 
