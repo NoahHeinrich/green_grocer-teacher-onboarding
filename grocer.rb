@@ -36,9 +36,10 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  cart.each do |key,value|
+  cart.each_key do |key|
     cart[key][:price] -= cart[key][:price] * 0.2 if cart[key][:clearance]
   end
+  cart
 end
 
 def checkout(cart, coupons)
