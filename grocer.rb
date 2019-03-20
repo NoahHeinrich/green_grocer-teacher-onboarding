@@ -17,16 +17,17 @@ end
 def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     item_name = coupon[:item]
-    coupon_name = item_name + " W/COUPON"
-    cart[coupon_name] = Hash.new
-    cart[coupon_name][:price] = coupon[:cost]
-    cart[coupon_name][:count] = 0
-    cart[coupon_name][:clearance] = cart[item_name][:clearance]
-    while cart[item_name][:count] >= coupon[:num]
-      cart[item_name][:count] -= coupon[:num]
-      cart[coupon_name][:count] += 1
+    if cart[item_name]
+      coupon_name = item_name + " W/COUPON"
+      cart[coupon_name] = Hash.new
+      cart[coupon_name][:price] = coupon[:cost]
+      cart[coupon_name][:count] = 0
+      cart[coupon_name][:clearance] = cart[item_name][:clearance]
+      while cart[item_name][:count] >= coupon[:num]
+        cart[item_name][:count] -= coupon[:num]
+        cart[coupon_name][:count] += 1
+      end
     end
-  end
   cart
   
 end
