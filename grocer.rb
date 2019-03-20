@@ -20,7 +20,7 @@ def apply_coupons(cart, coupons)
     coupon_name = item_name + " W/COUPON"
     cart[coupon_name] = Hash.new
     cart[coupon_name][:price] = coupon[:cost]
-    if cart[item_name][:count] >= coupon[:num]
+    while cart[item_name][:count] >= coupon[:num]
       cart[item_name][:count] -= coupon[:num]
     end
     cart[coupon_name][:count] = coupon[:num]
