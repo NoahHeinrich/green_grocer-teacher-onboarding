@@ -240,7 +240,7 @@ describe "Grocer" do
         expect(self).to receive(:consolidate_cart).with(cart).and_return(consolidated)
         expect(self).to receive(:apply_coupons).with(consolidated, coupons).and_return(coupons_applied)
         expect(self).to receive(:apply_clearance).with(coupons_applied).and_return(clearance_applied)
-        binding.pry
+        binding
         expect(checkout(cart, coupons)).to eq(22.60)
       end
 
