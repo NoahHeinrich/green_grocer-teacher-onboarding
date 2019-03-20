@@ -21,6 +21,7 @@ def apply_coupons(cart, coupons)
     cart[coupon_name][:price] = coupon[:cost]
     cart[coupon_name][:count] = coupon[:num]
   end
+  puts cart
   
 end
 
