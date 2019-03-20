@@ -17,8 +17,7 @@ end
 def apply_coupons(cart, coupons)
   item_name = coupons[0][:item]
   coupon_name = item_name + " W/COUPON"
-  cart[coupon_name][:price] = coupons[item_name][:cost]
-  cart[coupon_name][:clearance] = cart[item_name][:clearance]
+  
 end
 
 def apply_clearance(cart)
